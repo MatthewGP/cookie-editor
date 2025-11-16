@@ -1,5 +1,4 @@
 import js from '@eslint/js';
-import google from 'eslint-config-google';
 import prettierConfig from 'eslint-config-prettier';
 import prettier from 'eslint-plugin-prettier';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
@@ -17,11 +16,8 @@ export default [
     ],
   },
 
-  // Base configuration for JS/MJS files
+  // Base configuration for JS/MJS files with Google-style rules
   js.configs.recommended,
-
-  // Google's style guide
-  google,
 
   // Main custom configuration
   {
@@ -39,6 +35,23 @@ export default [
       },
     },
     rules: {
+      // Google-style rules (non-formatting)
+      'no-multiple-empty-lines': ['error', { max: 2 }],
+      camelcase: 'error',
+      'no-trailing-spaces': 'error',
+      'eol-last': 'error',
+
+      // Unused variables (lenient for package updates)
+      'no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^e$',
+        },
+      ],
+
+      // Prettier integration
       'prettier/prettier': 'error',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',

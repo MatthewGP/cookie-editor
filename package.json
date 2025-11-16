@@ -7,11 +7,11 @@
   },
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "eslint": "^8.47.0",
+    "eslint": "^9.39.1",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "grunt": "~1.6.1",
     "grunt-contrib-clean": "^2.0.1",
     "grunt-contrib-compress": "^2.0.0",
@@ -27,5 +27,8 @@
   "scripts": {
     "lint": "eslint . --config eslint.config.mjs",
     "lint:fix": "eslint . --fix --config eslint.config.mjs"
+  },
+  "overrides": {
+    "js-yaml": "^4.1.1"
   }
 }
